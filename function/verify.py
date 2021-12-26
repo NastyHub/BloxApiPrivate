@@ -3,6 +3,8 @@ import random
 import json
 import os
 
+path = ""
+
 def convert_name_into_id(name):
     r = req.get(f"https://api.roblox.com/users/get-by-username?username={name}").json()
     try:
@@ -76,7 +78,6 @@ class verification:
     
     def create_data(self):
         #name: robloxid
-        path = ""
         try:
             jsondata = {
                 "robloxid" : self.userid
@@ -90,8 +91,6 @@ class verification:
             return 0
     
     def remove_data(self):
-        path = ""
-
         if os.path.isfile(path+f"/{self.discordid}.json"):
             os.remove(path+f"/{self.discordid}.json")
             return 1
