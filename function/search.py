@@ -1,9 +1,16 @@
 from typing_extensions import IntVar
 import requests as req
 
+"""
+KEEP WORKING ON IT
+"""
+
 def convert_name_into_id(name):
     r = req.get(f"https://api.roblox.com/users/get-by-username?username={name}").json()
-    return r
+    try:
+        return r["Id"]
+    except:
+        return None
 
 def dividetime(format):
     datelist = format[:10].split("-")
@@ -48,13 +55,14 @@ def smart_user_algorithm(basicdata, groupid=None):
         #extract discordid into userid
     else:
         res = convert_name_into_id(basicdata)
-        try:
-            userid = res["Id"]
-        except:
+        if res == None:
             try:
                 userid = int(basicdata)
+                r = req.get(f"")
             except:
                 return None
+        else:
+            userid = res
     
     data = userdata(userid, groupid)
     data.get_raw_data()
