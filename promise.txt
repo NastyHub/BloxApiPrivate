@@ -1,0 +1,9 @@
+CONTENTS BELOW ARE PROMISES MADE BY THE AUTHOR
+
+I) Returning from Functions
+    I-i) If a value is supposed to be returned
+        Value = Positive(Success)
+        None = Negative(Failed)
+    I-ii) If there is no value to be returned
+        1 = Positive(Success)
+        0 = Negative(Failed)
